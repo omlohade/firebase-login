@@ -1,0 +1,9 @@
+{
+  "build": {
+    "cmd": "npm install",
+    "env": "production"
+  },
+  "deploy": {
+    "start": "firebase serve --only hosting"
+  }
+}
