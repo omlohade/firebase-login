@@ -1,21 +1,17 @@
 import express from "express";
 import path from "path";
-import { cwd } from "process";
 
 const app = express();
 
-// Get the absolute path to /public using process.cwd()
-const publicPath = path.join(cwd(), "public");
+// 🔥 Replace this with your actual absolute path on your machine or Railway
+const absolutePublicPath = "/public"; // e.g., "/Users/yourname/projects/firebase-auth/public"
 
-// Serve static files from the public folder
-app.use(express.static(publicPath));
+app.use(express.static(absolutePublicPath));
 
-// Handle all routes with index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(publicPath, "index.html"));
+  res.sendFile(path.join(absolutePublicPath, "index.html"));
 });
 
-// Start the server
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
